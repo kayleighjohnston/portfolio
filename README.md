@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
 
 _s
@@ -43,3 +44,6 @@ Then, update the stylesheet header in `style.css` and the links in `footer.php` 
 Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
 
 Good luck!
+=======
+# portfolio
+>>>>>>> 1cc8a93269763c377b1ba9748adab25373aae542
