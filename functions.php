@@ -46,7 +46,7 @@ function kayleighjohnston_setup() {
 	 *
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
-	//add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-thumbnails' );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -100,17 +100,45 @@ add_action( 'widgets_init', 'kayleighjohnston_widgets_init' );
  * Enqueue scripts and styles.
  */
 function kayleighjohnston_scripts() {
-	wp_enqueue_style( 'kayleighjohnston-style', get_stylesheet_uri() );
-
-	wp_enqueue_script( 'kayleighjohnston-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
-	wp_enqueue_script( 'kayleighjohnston-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_style( 'kayleighjohnston-bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' );
+	wp_enqueue_style( 'kayleighjohnston-fontawesome', get_template_directory_uri() . '/css/font-awesome.min.css' );
+	wp_enqueue_style( 'kayleighjohnston-style', get_template_directory_uri() . '/style.min.css' );
+	wp_enqueue_script( 'kayleighjohnston-vendor', get_template_directory_uri() . '/js/scripts.min.js', array(), '20120206', true );
+	wp_enqueue_script( 'kayleighjohnston-custom', get_template_directory_uri() . '/js/main.min.js', array(), '20120206', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'kayleighjohnston_scripts' );
+
+add_action( 'init', 'kayleighjohnston_posttypes' );
+function kayleighjohnston_posttypes() {
+	register_post_type( 'projects', array(
+		'labels' => array(
+			'name' => __( 'Projects' ),
+			'singular_name' => __( 'Project' ),
+			'search_items' => __( 'Search Project' ),
+			'all_items' => __( 'All Projects' ),
+			'edit_item' => __( 'Edit Project' ),
+			'update_item' => __( 'Update Projects' ),
+			'add_new_item' => __( 'New Project' ),
+			'menu_name' => __( 'Projects' ),
+		),
+		'supports' => array(
+			'title',
+			'thumbnail',
+			'editor',
+		),
+		'rewrite' => array(
+			'slug' => 'projects',
+			'with_front' => false,
+		),
+		'public' => true,
+		'has_archive' => false,
+        'show_in_nav_menus' => true,
+	) );
+}
 
 /**
  * Implement the Custom Header feature.

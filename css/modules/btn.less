@@ -1,0 +1,46 @@
+.btn {
+	padding: 10px 20px;
+	color: @white;
+	text-transform: uppercase;
+	font-family: @sans;
+	font-size: 10px;
+	letter-spacing: 3px;
+	height: 100%;
+
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-o-border-radius: 6px;
+	border-radius: 6px;
+
+	-webkit-transition: 0.3s ease all;
+	-moz-transition: 0.3s ease all;
+	-o-transition: 0.3s ease all;
+	transition: 0.3s ease all;
+}
+
+.btn:focus {
+	outline: 0 !important;
+}
+
+.btn:focus,
+.btn.focus {
+	color: inherit;
+}
+
+.btn-main {
+	background: @secondary;
+	color: @white;
+}
+
+.btn-main:visited,
+.btn-main:active {
+	color: @white
+}
+
+.btn-main:hover {
+	color: rgba(255,255,255,0.75);
+}
+
+.btn-arrow {
+	padding: 10px 15px 10px 20px;
+}
